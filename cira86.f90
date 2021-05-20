@@ -24,7 +24,7 @@ PROGRAM CIRA86
 
     CHARACTER(LEN =  8)         ::  FILENAME
 
-    REAL, DIMENSION(25)         ::  IEX, IH
+    REAL, DIMENSION(25)         ::  IEX, INVERSE_HEIGHT
     REAL, DIMENSION(70)         ::  SCALE_HEIGHT
     REAL, DIMENSION(71)         ::  PRESSURE, H
     REAL, DIMENSION(21, 17)     ::  PP
@@ -286,7 +286,7 @@ PROGRAM CIRA86
                                   H,                                            &
                                   Z
     ELSE IF (INPUT_TYPE == 2) THEN
-        READ (1)                  IH,                                           &
+        READ (1)                  INVERSE_HEIGHT,                               &
                                   TW,                                           &
                                   PP,                                           &
                                   IEX
@@ -310,7 +310,7 @@ PROGRAM CIRA86
 
         DO WHILE (I <= I_MAX .AND. PKI >= INPUT_HEIGHT)
             I   = I + 1
-            PKI = IH(I)
+            PKI = INVERSE_HEIGHT(I)
         END DO
 
     END IF
@@ -362,19 +362,27 @@ PROGRAM CIRA86
 
     IF (INPUT_TYPE == 1) THEN
 
-        WRITE (*, OUTPUT_FORMAT)          ' SCALE HEIGHT          =  ', SCALE_HEIGHT(I)
-        WRITE (*, OUTPUT_FORMAT)          ' PRESSURE (MB)         =  ', PRESSURE(I)
-        WRITE (*, OUTPUT_FORMAT)          ' GEOMETRIC HEIGHT      =  ', H(I)
-        WRITE (*, OUTPUT_FORMAT)          ' OUTPUT VALUE          =  ', REAL(X, 16)
+        WRITE (*, OUTPUT_FORMAT)          ' SCALE HEIGHT          =  ',         &
+                                            SCALE_HEIGHT(I)
+        WRITE (*, OUTPUT_FORMAT)          ' PRESSURE (MB)         =  ',         &
+                                            PRESSURE(I)
+        WRITE (*, OUTPUT_FORMAT)          ' GEOMETRIC HEIGHT      =  ',         &
+                                            H(I)
+        WRITE (*, OUTPUT_FORMAT)          ' OUTPUT VALUE          =  ',         &
+                                            REAL(X, 16)
 
     ELSE IF (INPUT_TYPE == 2) THEN
 
         IF (OUTPUT_TYPE /= 3) THEN
-            WRITE (*, OUTPUT_FORMAT)      ' HEIGHT (KM)           =  ', IH(I)
+            WRITE (*, OUTPUT_FORMAT)      ' HEIGHT (KM)           =  ',         &
+                                            INVERSE_HEIGHT(I)
         ELSE
-            WRITE (*, OUTPUT_FORMAT)      ' HEIGHT (KM)           =  ', IH(I), IEX(I)
+            WRITE (*, OUTPUT_FORMAT)      ' HEIGHT (KM)           =  ',         &
+                                            INVERSE_HEIGHT(I),                  &
+                                            IEX(I)
         END IF
-        WRITE     (*, OUTPUT_FORMAT)      ' OUTPUT VALUE          =  ', REAL(X)
+        WRITE     (*, OUTPUT_FORMAT)      ' OUTPUT VALUE          =  ',         &
+                                            REAL(X)
 
     END IF
 
