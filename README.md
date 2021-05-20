@@ -3,13 +3,13 @@
 ### COSPAR International Reference Atmosphere (CIRA) 1986 Model
 
 <br>This is a **Fortran Free-Form** version of the original fixed-form COSPAR/CIRA (1986) data driver.
-<br>This program reads the VAX/VMS style binary data files (&#42;.dat), for now.
+<br>This program reads the VAX/VMS-styled binary database files (&#42;.dat).
 
-It is meant to interpolate based on the required input, and output accordingly.
-<br>However, the binary files themselves are a bit challenging to interpret.
+It is meant to interpolate based on the required input, and output the results accordingly.
+<br>However, the binary files, themselves, are a bit challenging to interpret.
 
 The original driver file **cirat.for**, unfortunately, produces incorrect results.
-<br>Also, it's confusing to read, given its age-old fixed-form style reserved for the punch cards.
+<br>Also, it's confusing to read, given its age-old fixed-form style reserved for the punch card system.
 
 The file, **cira86.f90**, is of free-form style, easy to read. The executable generated is interactive.
 
