@@ -303,9 +303,9 @@ REMARK:     CANNOT UNDERSTAND THE MAJORITY OF THE DATA.
          270 .     545.359985    
          271 .    -12.0437498    
          272 .     346.000000    
-         273 .     553.463989    
-         274 .    -16.7999992    
-         275 .     342.799988    
+         273 .     553.463989    Why does the Geo-potential height 
+         274 .    -16.7999992    suddenly begin to start increasing 
+         275 .     342.799988    over here?
          276 .     569.536011    
          277 .    -20.0750008    
          278 .     338.000000    
@@ -450,12 +450,14 @@ REMARK:     CANNOT UNDERSTAND THE MAJORITY OF THE DATA.
          417 .     992.831970    
          418 .   -0.800390601    
          419 .     14.6750002    
-         420 .     3987.84009    
-         421 .     3999.60010    
+         420 .     3987.84009    This seems odd.
+         421 .     3999.60010    This seems odd.
          422 .     3.99960947    
-         423 .     3995.90405    
-         424 .     3999.60010    
+         423 .     3995.90405    This seems odd.
+         424 .     3999.60010    This seems odd.
          425 .     3.99960947    
+
+
          426 .     1613.95203    
          427 .    -10.0531254    
          428 .     470.000000    

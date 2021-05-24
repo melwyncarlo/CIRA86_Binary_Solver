@@ -38,7 +38,8 @@ PROGRAM CIRA86
                                     I_MAX,                                      &
                                     L_BEG,                                      &
                                     L_INC,                                      &
-                                    L_STEP
+                                    L_STEP,                                     &
+                                    ADJUSTED_LATITUDE
 
     ! CONSTANT VARIABLE DECLARATIONS AND DEFINITIONS
 
@@ -247,6 +248,8 @@ PROGRAM CIRA86
     END IF
 
     L_BEG                          =  INT((INPUT_LATITUDE + 80) / L_INC) + 1
+    ADJUSTED_LATITUDE              = (INT(L_BEG) - CEILING(161.0 /              &
+                                     (L_INC * 2))) * L_INC
 
     ! OPEN ONE OF THE VAX/VMS-STYLE BINARY DATA (*.DAT) FILES
 
@@ -368,6 +371,8 @@ PROGRAM CIRA86
                                             PRESSURE(I)
         WRITE (*, OUTPUT_FORMAT)          ' GEOMETRIC HEIGHT      =  ',         &
                                             H(I)
+        WRITE (*, OUTPUT_FORMAT)          ' ADJUSTED LATITUDE     =  ',         &
+                                            REAL(ADJUSTED_LATITUDE)
         WRITE (*, OUTPUT_FORMAT)          ' OUTPUT VALUE          =  ',         &
                                             REAL(X, 16)
 
@@ -381,6 +386,8 @@ PROGRAM CIRA86
                                             INVERSE_HEIGHT(I),                  &
                                             IEX(I)
         END IF
+        WRITE     (*, OUTPUT_FORMAT)      ' ADJUSTED LATITUDE     =  ',         &
+                                            REAL(ADJUSTED_LATITUDE)
         WRITE     (*, OUTPUT_FORMAT)      ' OUTPUT VALUE          =  ',         &
                                             REAL(X)
 
